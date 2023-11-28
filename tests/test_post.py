@@ -1,66 +1,39 @@
-# from lib.social_network_repository import SocialNetworkRepository
-# from lib.social_network import SocialNetwork
+from lib.post import Post
 
-# """
-# When we call SocialNetworkRepository#all
-# We get a list of SocialNetwork objects reflecting the seed data.
-# """
-# def test_get_all_records(db_connection): # See conftest.py to learn what `db_connection` is.
-#     db_connection.seed("seeds/music_library.sql") # Seed our database with some test data
-#     repository = SocialNetworkRepository(db_connection) # Create a new SocialNetworkRepository
+"""
+Post constructs with an id, user_id, title, content and views
+"""
+def test_post_constructs():
+    post = Post(1, 1, 'Lorem ipsum', 'Lorem ipsum dolor sit amet', 0)
+    assert post.id == 1
+    assert post.user_id == 1
+    assert post.title == 'Lorem ipsum'
+    assert post.content == 'Lorem ipsum dolor sit amet'
+    assert post.views == 0
 
-#     social_networks = repository.all() # Get all social_networks
+"""
+We can format posts to strings nicely
+"""
+def test_posts_format_nicely():
+    post = Post(1, 1, 'Lorem ipsum', 'Lorem ipsum dolor sit amet', 0)
+    assert str(post) == "Post(1, 1, Lorem ipsum, Lorem ipsum dolor sit amet, 0)"
+    # Try commenting out the `__repr__` method in lib/post.py
+    # And see what happens when you run this test again.
 
-#     # Assert on the results
-#     assert social_networks == [
-#         SocialNetwork(1, "Pixies", "Rock"),
-#         SocialNetwork(2, "ABBA", "Pop"),
-#         SocialNetwork(3, "Taylor Swift", "Pop"),
-#         SocialNetwork(4, "Nina Simone", "Jazz"),
-#     ]
+"""
+We can compare two identical posts
+And have them be equal
+"""
+def test_posts_are_equal():
+    post1 = Post(1, 1, 'Lorem ipsum', 'Lorem ipsum dolor sit amet', 0)
+    post2 = Post(1, 1, 'Lorem ipsum', 'Lorem ipsum dolor sit amet', 0)
+    assert post1 == post2
+    # Try commenting out the `__eq__` method in lib/post.py
+    # And see what happens when you run this test again.
 
-# """
-# When we call SocialNetworkRepository#find
-# We get a single SocialNetwork object reflecting the seed data.
-# """
-# def test_get_single_record(db_connection):
-#     db_connection.seed("seeds/music_library.sql")
-#     repository = SocialNetworkRepository(db_connection)
 
-#     social_network = repository.find(3)
-#     assert social_network == SocialNetwork(3, "Taylor Swift", "Pop")
+# INSERT INTO posts (user_id, title, content, views) VALUES (1, 'Lorem ipsum', 'Lorem ipsum dolor sit amet', 0);
+# INSERT INTO posts (user_id, title, content, views) VALUES (2, 'Consectetur', 'Consectetur adipiscing elit', 0);
+# INSERT INTO posts (user_id, title, content, views) VALUES (3, 'Sed do', 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua', 0);
+# INSERT INTO posts (user_id, title, content, views) VALUES (4, 'Ut enim', 'Ut enim ad minim veniam', 0);
 
-# """
-# When we call SocialNetworkRepository#create
-# We get a new record in the database.
-# """
-# def test_create_record(db_connection):
-#     db_connection.seed("seeds/music_library.sql")
-#     repository = SocialNetworkRepository(db_connection)
-
-#     repository.create(SocialNetwork(None, "The Beatles", "Rock"))
-
-#     result = repository.all()
-#     assert result == [
-#         SocialNetwork(1, "Pixies", "Rock"),
-#         SocialNetwork(2, "ABBA", "Pop"),
-#         SocialNetwork(3, "Taylor Swift", "Pop"),
-#         SocialNetwork(4, "Nina Simone", "Jazz"),
-#         SocialNetwork(5, "The Beatles", "Rock"),
-#     ]
-
-# """
-# When we call SocialNetworkRepository#delete
-# We remove a record from the database.
-# """
-# def test_delete_record(db_connection):
-#     db_connection.seed("seeds/music_library.sql")
-#     repository = SocialNetworkRepository(db_connection)
-#     repository.delete(3) # Apologies to Taylor Swift fans
-
-#     result = repository.all()
-#     assert result == [
-#         SocialNetwork(1, "Pixies", "Rock"),
-#         SocialNetwork(2, "ABBA", "Pop"),
-#         SocialNetwork(4, "Nina Simone", "Jazz"),
-#     ]
