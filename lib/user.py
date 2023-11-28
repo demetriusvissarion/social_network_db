@@ -1,10 +1,10 @@
-class SocialNetwork:
+class User:
     # We initialise with all of our attributes
     # Each column in the table should have an attribute here
-    def __init__(self, id, name, genre):
+    def __init__(self, id, username, email):
         self.id = id
-        self.name = name
-        self.genre = genre
+        self.username = username
+        self.email = email
 
     # This method allows our tests to assert that the objects it expects
     # are the objects we made based on the database records.
@@ -13,4 +13,4 @@ class SocialNetwork:
 
     # This method makes it look nicer when we print an SocialNetwork
     def __repr__(self):
-        return f"SocialNetwork({self.id}, {self.name}, {self.genre})"
+        return f"User({self.id}, {self.username}, {self.email})"

@@ -1,5 +1,5 @@
 from lib.database_connection import DatabaseConnection
-from lib.social_network_repository import SocialNetworkRepository
+from lib.post import SocialNetworkRepository
 
 
 # Connect to the database
