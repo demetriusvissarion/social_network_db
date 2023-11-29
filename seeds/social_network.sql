@@ -27,8 +27,8 @@ INSERT INTO users (username, email) VALUES ('TestUser3', 'test3.email@test.com')
 INSERT INTO users (username, email) VALUES ('TestUser4', 'test4.email@test.com');
 
 
-INSERT INTO posts (user_id, title, content, views) VALUES (1, 'Lorem ipsum', 'Lorem ipsum dolor sit amet', 0);
-INSERT INTO posts (user_id, title, content, views) VALUES (2, 'Consectetur', 'Consectetur adipiscing elit', 0);
-INSERT INTO posts (user_id, title, content, views) VALUES (3, 'Sed do', 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua', 0);
-INSERT INTO posts (user_id, title, content, views) VALUES (4, 'Ut enim', 'Ut enim ad minim veniam', 0);
+INSERT INTO posts (user_id, title, content, views) VALUES (1, 'Lorem ipsum', 'Lorem ipsum dolor sit amet', 6575);
+INSERT INTO posts (user_id, title, content, views) VALUES (2, 'Consectetur', 'Consectetur adipiscing elit', 436);
+INSERT INTO posts (user_id, title, content, views) VALUES (3, 'Sed do', 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua', 354);
+INSERT INTO posts (user_id, title, content, views) VALUES (4, 'Ut enim', 'Ut enim ad minim veniam', 3245);
 

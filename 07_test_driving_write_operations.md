@@ -33,6 +33,9 @@ Your assignment is to test-drive a social network program. You should:
 3. Create a `seeds/social_network.sql`.
 
 4. Test-drive the application to meet the user stories above.
+    => make sure tables are linked correctly and working together to display results
+    => apply all changes to app.py to see if app works
+        => create users, access posts by user
 
 
 
